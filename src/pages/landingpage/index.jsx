@@ -61,7 +61,7 @@ const LandingPage = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">
+              <Nav.Link href="/auth/Login">
                 <button type="button" className="btn ml-4" style={{ border: "1px solid #5E50A1", color: "#5E50A1", padding: "10px 20px", cursor: "pointer", marginLeft: "800px" }}>
                   Masuk
                 </button>
