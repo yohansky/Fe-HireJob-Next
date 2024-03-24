@@ -11,6 +11,7 @@ import Slider from "react-slick";
 import iconputih from "@/assets/img/iconputih.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import NavbarLogin from "@/components/navbarlogin";
 
 const LandingPage = () => {
   const [getDisplayName, setDisplay] = useState(true);
@@ -53,7 +54,8 @@ const LandingPage = () => {
 
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <NavbarLogin />
+      {/* <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="#home">
             <Image src={icon} alt="Logo1" style={{ marginLeft: "50px" }} />
@@ -66,7 +68,7 @@ const LandingPage = () => {
                   Masuk
                 </button>
               </Nav.Link>
-              <Nav.Link href="#link">
+              <Nav.Link href="/auth/Register/Pekerja">
                 <button type="button" className="btn ml-1" style={{ backgroundColor: "#5E50A1", padding: "10px 20px", cursor: "pointer", color: "white", marginLeft: "16px" }}>
                   Daftar
                 </button>
@@ -74,7 +76,7 @@ const LandingPage = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar> */}
       {/* <Nav style={{ overflow: "hidden" }}>
         <div className="container mt-4">
           <Image src={icon} alt="Logo1" style={{ marginLeft: "50px" }} />
