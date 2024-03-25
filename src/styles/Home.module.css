@@ -1,3 +1,20 @@
+.gambar {
+  display: block;
+}
+
+/* .textcenter {
+  font-size: 100px;
+} */
+
+@media screen and (max-width: 768px) {
+  .gambar {
+    display: none;
+  }
+  /* .textcenter {
+    font-size: 200px;
+  } */
+}
+
 /* .main {
   display: flex;
   flex-direction: column;

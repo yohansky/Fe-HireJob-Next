@@ -3,6 +3,7 @@ import Image from "next/image";
 import bg1 from "@/assets/img/bg1.png";
 import { Form, Button } from "react-bootstrap";
 import Link from "next/link";
+import styles from "../../../styles/Home.module.css";
 
 const Login = () => {
   return (
@@ -10,8 +11,8 @@ const Login = () => {
       <div className="container" style={{ paddingTop: "20px" }}>
         <div className="row border">
           <div className="col-md-6">
-            <div style={{ width: "650px", height: "700px", border: "1px solid #5E50A1", backgroundColor: "#5E50A1" }}>
-              <Image src={bg1} alt="background1" style={{ width: "650px", height: "700px" }} />
+            <div style={{}}>
+              <Image className={styles.gambar} src={bg1} alt="background1" style={{ width: "650px", height: "700px" }} />
             </div>
           </div>
           <div className="col-md-6" style={{ paddingTop: "106px", paddingLeft: "70px" }}>

@@ -12,6 +12,7 @@ import iconputih from "@/assets/img/iconputih.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NavbarLogin from "@/components/navbarlogin";
+import Footer from "@/components/footer";
 
 const LandingPage = () => {
   const [getDisplayName, setDisplay] = useState(true);
@@ -55,39 +56,6 @@ const LandingPage = () => {
   return (
     <>
       <NavbarLogin />
-      {/* <Navbar expand="lg" className="bg-body-tertiary">
-        <Container>
-          <Navbar.Brand href="#home">
-            <Image src={icon} alt="Logo1" style={{ marginLeft: "50px" }} />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="/auth/Login">
-                <button type="button" className="btn ml-4" style={{ border: "1px solid #5E50A1", color: "#5E50A1", padding: "10px 20px", cursor: "pointer", marginLeft: "800px" }}>
-                  Masuk
-                </button>
-              </Nav.Link>
-              <Nav.Link href="/auth/Register/Pekerja">
-                <button type="button" className="btn ml-1" style={{ backgroundColor: "#5E50A1", padding: "10px 20px", cursor: "pointer", color: "white", marginLeft: "16px" }}>
-                  Daftar
-                </button>
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar> */}
-      {/* <Nav style={{ overflow: "hidden" }}>
-        <div className="container mt-4">
-          <Image src={icon} alt="Logo1" style={{ marginLeft: "50px" }} />
-          <button type="button" className="btn ml-4" style={{ border: "1px solid #5E50A1", color: "#5E50A1", padding: "10px 20px", cursor: "pointer", marginLeft: "800px" }}>
-            Masuk
-          </button>
-          <button type="button" className="btn ml-1" style={{ backgroundColor: "#5E50A1", padding: "10px 20px", cursor: "pointer", color: "white", marginLeft: "16px" }}>
-            Daftar
-          </button>
-        </div>
-      </Nav> */}
       <div className="container">
         <div className="row" style={{ marginTop: "147px" }}>
           <div className="col-6" style={{ paddingTop: "136px" }}>
@@ -105,11 +73,11 @@ const LandingPage = () => {
           </div>
         </div>
         {/* belum responsive */}
-        <div className="row flex" style={{ marginTop: "152px" }}>
-          <div className="col-sm-12 col-md-10 col-lg-7">
+        <div className="row flex border" style={{ marginTop: "152px" }}>
+          <div className="col-sm-12 col-md-9 col-lg-7">
             <Image src={g2} alt="gambar2" />
           </div>
-          <div className="col-sm-12 col-md-2 col-lg-5" style={{ paddingTop: "30px" }}>
+          <div className="col-sm-12 col-md-3 col-lg-5" style={{ paddingTop: "30px" }}>
             <h2>Kenapa harus mencari tallent di peworld</h2>
 
             <p style={{ marginTop: "36px" }}>
@@ -224,23 +192,7 @@ const LandingPage = () => {
         </div>
       </div>
       {/* footer */}
-      <div style={{ marginTop: "120px" }}>
-        <div style={{ height: "401px", border: "1px solid #5E50A1", backgroundColor: "#5E50A1" }}>
-          <div className="container">
-            <div className="d-flex ">
-              <div className="p-2 mx-auto my-3">
-                <Image src={iconputih} alt="footer1" />
-
-                <p className="col-4" style={{ marginTop: "30px", color: "white" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores accusamus culpa ab, eius voluptatum suscipit accusantium nostrum unde optio cum? Mollitia maxime illum minus libero suscipit saepe ratione soluta quod.
-                </p>
-
-                <div style={{ border: "1px solid white", width: "1140px", marginTop: "67px" }}></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Footer />
     </>
   );
 };
