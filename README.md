@@ -48,14 +48,14 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
   </tr>
   <tr>
     <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
-    <td><img width="350px" src="" border="0" alt="1"/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/fad3daea-554a-42b8-b6a1-b27e2c234c1f" border="0" alt="1"/></td>
   </tr>
   <tr>
     <td>LandingPage (sebelum login)</td>
     <td>LandingPage (sesudah login)</td>
   </tr>
   <tr>
-    <td><img width="350px" src="" border="0" alt="1"/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/0d726535-1835-4edf-acf1-5aa388d22146" border="0" alt="1"/></td>
     <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/d1d8eadb-8ba5-4b99-9b85-a98093a50778" border="0" alt="1"/></td>
   </tr>
   <tr>
