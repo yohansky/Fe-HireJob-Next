@@ -55,47 +55,39 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     <td>LandingPage (sesudah login)</td>
   </tr>
   <tr>
-    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
     <td><img width="350px" src="" border="0" alt="1"/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/d1d8eadb-8ba5-4b99-9b85-a98093a50778" border="0" alt="1"/></td>
   </tr>
   <tr>
     <td>Pencarian Pekerja (Rekruter)</td>
     <td>Profile Pekerja (portofolio)</td>
   </tr>
   <tr>
-    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
-    <td><img width="350px" src="" border="0" alt="1"/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/8d4e94f2-0b13-43d3-b4ed-df1775b46b92" border="0" alt="1"/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/4b81e0b8-1a6f-41f9-a8e8-03ae89eae290" border="0" alt="1"/></td>
   </tr>
   <tr>
     <td>Profile Pekerja (pengalaman)</td>
-    <td>Register</td>
+    <td>Profile Pekerja Edit</td>
   </tr>
   <tr>
-    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
-    <td><img width="350px" src="" border="0" alt="1"/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/2c75d1eb-3064-4c73-babe-fa03cad7b0a8"border="0" alt="1"/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/facf7141-f8ca-49b6-a5a2-ebbf5d560697" border="0" alt="1"/></td>
   </tr>
   <tr>
-    <td>Login</td>
-    <td>Register</td>
+    <td>Profile Perusahaan</td>
+    <td>Profile Perusahaan Edit</td>
   </tr>
   <tr>
-    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
-    <td><img width="350px" src="" border="0" alt="1"/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/600ee873-a25d-4970-88e1-2fca2f9a32ae" border="0" alt="1"/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/1148d865-61cb-449b-9ec5-dc1dc2ed6952" border="0" alt="1"/></td>
   </tr>
   <tr>
-    <td>Login</td>
-    <td>Register</td>
+    <td>Hire (WIP)</td>
+    <td></td>
   </tr>
   <tr>
-    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
-    <td><img width="350px" src="" border="0" alt="1"/></td>
-  </tr>
-  <tr>
-    <td>Login</td>
-    <td>Register</td>
-  </tr>
-  <tr>
-    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/ec131cb6-d73b-44f0-9482-e84c3a3504aa" border="0" alt="1"/></td>
     <td><img width="350px" src="" border="0" alt="1"/></td>
   </tr>
 </table>
