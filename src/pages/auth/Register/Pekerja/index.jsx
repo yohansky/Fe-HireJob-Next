@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import bg1 from "@/assets/img/bg1.png";
 import { Form, Button } from "react-bootstrap";
-import Link from "next/link";
 
 const RegisterPekerja = () => {
+  const [formData, setFormData] = useState({
+    nama: "",
+    email: "",
+    handphone: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const { nama, email, handphone, password, confirmPassword } = formData;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Tambahkan logika validasi di sini, misalnya:
+    if (nama.trim() === "" || email.trim() === "" || handphone.trim() === "" || password.trim() === "" || confirmPassword.trim() === "") {
+      alert("Harap isi semua kolom formulir.");
+      return;
+    }
+    // Lanjutkan dengan proses pendaftaran jika formulir valid
+    // contoh: panggil fungsi daftarPekerja() atau kirim data ke backend
+  };
+
   return (
     <>
       <div className="container" style={{ paddingTop: "20px" }}>
@@ -17,34 +42,37 @@ const RegisterPekerja = () => {
           <div className="col-md-6" style={{ paddingTop: "10px", paddingRight: "100px" }}>
             <h2>Halo, Pewpeople</h2>
             <p className="mt-3">
-              {" "}
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque eligendi omnis aliquid dolor numquam, quas, odio suscipit assumenda iste facere amet doloremque a ipsum reprehenderit alias blanditiis quidem nemo ab.
             </p>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3 mt-4" controlId="exampleForm.ControlInput1">
                 <Form.Label>Nama</Form.Label>
-                <Form.Control type="text" placeholder="Masukkan nama panjang" />
+                <Form.Control type="text" name="nama" value={nama} onChange={handleChange} placeholder="Masukkan nama panjang" />
                 <Form.Label className="mt-2 mb-2">Email</Form.Label>
-                <Form.Control type="email" placeholder="Masukkan alamat email" />
+                <Form.Control type="email" name="email" value={email} onChange={handleChange} placeholder="Masukkan alamat email" />
                 <Form.Label className="mt-2 mb-2">No handphone</Form.Label>
-                <Form.Control type="text" placeholder="Masukkan no handphone" />
+                <Form.Control type="text" name="handphone" value={handphone} onChange={handleChange} placeholder="Masukkan no handphone" />
                 <Form.Label className="mt-2 mb-2">Kata Sandi</Form.Label>
-                <Form.Control type="password" placeholder="Masukkan kata sandi" />
+                <Form.Control type="password" name="password" value={password} onChange={handleChange} placeholder="Masukkan kata sandi" />
                 <Form.Label className="mt-2 mb-2">Konfirmasi kata sandi</Form.Label>
-                <Form.Control type="password" placeholder="Konfirmasi kata sandi" />
+                <Form.Control type="password" name="confirmPassword" value={confirmPassword} onChange={handleChange} placeholder="Konfirmasi kata sandi" />
               </Form.Group>
-              <Link href="/landingpage">
-                <Button type="button" className="btn btn-warning mb-4 mt-3" style={{ color: "white", width: "570px" }}>
-                  Daftar
-                </Button>
-              </Link>
-              <p className="text-center">
-                Anda sudah punya akun?
-                <a className="p-2" style={{ color: "orange" }} href="/auth/Login">
-                  Masuk disini
-                </a>
-              </p>
+              <Button
+                type="submit"
+                className="btn btn-warning mb-4 mt-3"
+                style={{ color: "white", width: "570px" }}
+                disabled={nama.trim() === "" || email.trim() === "" || handphone.trim() === "" || password.trim() === "" || confirmPassword.trim() === ""}
+                href="/auth/Login"
+              >
+                Daftar
+              </Button>
             </Form>
+            <p className="text-center">
+              Anda sudah punya akun?{" "}
+              <a className="p-2" style={{ color: "orange" }} href="/auth/Login">
+                Masuk disini
+              </a>
+            </p>
           </div>
         </div>
       </div>

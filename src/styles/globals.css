@@ -3,7 +3,41 @@ body {
   margin: 0;
 }
 
-@media screen {
+.gambar {
+  width: auto;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .gambar {
+    width: 20px; /* Ukuran gambar setengah lebar container saat lebar layar minimal 768px */
+  }
+  .gambar1 {
+    /* display: none; */
+  }
+}
+
+@media (max-width: 1200px) {
+  .gambar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .test {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .gambar1,
+  .gambar2,
+  .gambar3 {
+    display: none;
+  }
+  .gambar {
+    display: none;
+  }
 }
 
 /* .box-container {

@@ -1,15 +1,13 @@
-.gambar {
-  display: block;
-}
+/* .gambar {
+  width: auto;
+  height: auto;
+} */
 
 /* .textcenter {
   font-size: 100px;
 } */
 
 @media screen and (max-width: 768px) {
-  .gambar {
-    display: none;
-  }
   /* .textcenter {
     font-size: 200px;
   } */

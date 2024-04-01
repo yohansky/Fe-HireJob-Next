@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Nav, Button, Navbar, Container } from "react-bootstrap";
 import icon from "@/assets/img/icon.png";
 import g1 from "@/assets/img/g1.png";
@@ -13,10 +13,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NavbarLogin from "@/components/navbarlogin";
 import Footer from "@/components/footer";
+import Link from "next/link";
+import NavbarProfile from "@/components/navbarprofile";
 
 const LandingPage = () => {
   const [getDisplayName, setDisplay] = useState(true);
   const [width, setWidth] = useState(600);
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, []);
 
   const settings = {
     dots: true,
@@ -55,27 +62,29 @@ const LandingPage = () => {
 
   return (
     <>
-      <NavbarLogin />
+      {token ? <NavbarProfile /> : <NavbarLogin />}
       <div className="container">
         <div className="row" style={{ marginTop: "147px" }}>
-          <div className="col-6" style={{ paddingTop: "136px" }}>
+          <div className="col-lg-6 col-md-4 col-sm-12 mb-3" style={{ paddingTop: "136px" }}>
             <h2>Talenta terbaik negri untuk perubahan revolusi 4.0</h2>
             <p className="mt-2">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam harum facere cumque, consequatur, inventore earum, consequuntur quis soluta nesciunt dolore similique minima vitae impedit excepturi. Esse minus aperiam cumque
               facere.
             </p>
-            <Button className="mt-4" style={{ width: "210px", height: "63px" }}>
-              Mulai Dari Sekarang
-            </Button>
+            <Link href={"/home"}>
+              <Button className="mt-4" style={{ width: "210px", height: "63px" }}>
+                Mulai Dari Sekarang
+              </Button>
+            </Link>
           </div>
-          <div className="col-6">
-            <Image src={g1} alt="gambar1" style={{ marginLeft: "130px" }} />
+          <div className="col-lg-6 col-md-6 col-sm-12">
+            <Image src={g1} className="gambar1" alt="gambar1" style={{ marginLeft: "60px" }} />
           </div>
         </div>
         {/* belum responsive */}
-        <div className="row flex border" style={{ marginTop: "152px" }}>
+        <div className="row" style={{ marginTop: "152px" }}>
           <div className="col-sm-12 col-md-9 col-lg-7">
-            <Image src={g2} alt="gambar2" />
+            <Image src={g2} alt="gambar2" className="gambar2" />
           </div>
           <div className="col-sm-12 col-md-3 col-lg-5" style={{ paddingTop: "30px" }}>
             <h2>Kenapa harus mencari tallent di peworld</h2>
@@ -100,7 +109,7 @@ const LandingPage = () => {
         </div>
         {/*  */}
         <div className="row" style={{ marginTop: "152px" }}>
-          <div className="col-6">
+          <div className="col-lg-6 col-sm-12">
             <h2>Skill Tallent</h2>
             <p className="mt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores commodi quod velit, provident consequuntur similique perferendis cumque, voluptatum, temporibus voluptate alias voluptatem quia minus quo maiores eos vel
@@ -146,7 +155,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="col-6">
-            <Image src={g3} alt="gambar3" />
+            <Image src={g3} alt="gambar3" className="gambar3" />
           </div>
         </div>
         {/*  */}
@@ -184,9 +193,11 @@ const LandingPage = () => {
           <div className="card" style={{ width: "1140px", height: "227px", borderRadius: "40px, 8px, 40px, 8px", backgroundColor: "#5E50A1" }}>
             <div className="d-flex justify-content-around align-items-center my-auto">
               <h2>Lorem ipsum dolor sit amet</h2>
-              <button type="button" className="btn ml-1" style={{ width: "210px", height: "63px", backgroundColor: "white", padding: "10px 20px", cursor: "pointer", color: "#796EAF", marginLeft: "16px" }}>
-                Mulai Dari Sekarang
-              </button>
+              <Link href="/profileperusahaan">
+                <button type="button" className="btn ml-1" style={{ width: "210px", height: "63px", backgroundColor: "white", padding: "10px 20px", cursor: "pointer", color: "#796EAF", marginLeft: "16px" }}>
+                  Mulai Dari Sekarang
+                </button>
+              </Link>
             </div>
           </div>
         </div>
