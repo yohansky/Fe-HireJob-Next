@@ -50,4 +50,52 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
     <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
     <td><img width="350px" src="" border="0" alt="1"/></td>
   </tr>
+  <tr>
+    <td>LandingPage (sebelum login)</td>
+    <td>LandingPage (sesudah login)</td>
+  </tr>
+  <tr>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
+    <td><img width="350px" src="" border="0" alt="1"/></td>
+  </tr>
+  <tr>
+    <td>Pencarian Pekerja (Rekruter)</td>
+    <td>Profile Pekerja (portofolio)</td>
+  </tr>
+  <tr>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
+    <td><img width="350px" src="" border="0" alt="1"/></td>
+  </tr>
+  <tr>
+    <td>Profile Pekerja (pengalaman)</td>
+    <td>Register</td>
+  </tr>
+  <tr>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
+    <td><img width="350px" src="" border="0" alt="1"/></td>
+  </tr>
+  <tr>
+    <td>Login</td>
+    <td>Register</td>
+  </tr>
+  <tr>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
+    <td><img width="350px" src="" border="0" alt="1"/></td>
+  </tr>
+  <tr>
+    <td>Login</td>
+    <td>Register</td>
+  </tr>
+  <tr>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
+    <td><img width="350px" src="" border="0" alt="1"/></td>
+  </tr>
+  <tr>
+    <td>Login</td>
+    <td>Register</td>
+  </tr>
+  <tr>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/749da462-dd84-4a39-a461-ac1cbfb6bcd3" border="0" alt="1"/></td>
+    <td><img width="350px" src="" border="0" alt="1"/></td>
+  </tr>
 </table>
