@@ -1,3 +1,11 @@
+<!-- ABOUT THE PROJECT -->
+
+## About The Project (WIP)
+
+Hello, Nama saya Yohanes Hubert, Talent Pijar Camp kelas Fullstack & Golang Dev Batch 1
+
+Peworld Hirejob is a website specifically designed to help recruiters find and recruit quality talent according to their interests and needs. The platform provides various features and tools that make it easier for recruiters to identify, assess and contact potential job candidates. With Peworld Hirejob, recruiters can easily run an efficient and effective recruitment process, enabling them to find the most suitable individuals for available positions.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
