@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import pp from "@/assets/img/profilepic.png";
 import axios from "axios";
 import pinmap from "@/assets/img/pinmap.png";
-import { Dropdown, Form } from "react-bootstrap";
+import { Button, Dropdown, Form } from "react-bootstrap";
+import Footer from "@/components/footer";
 
 const Hire = () => {
   const [pekerja, setPekerja] = useState([]);
@@ -89,12 +90,22 @@ const Hire = () => {
                     <Form.Label>Nama No Handphone</Form.Label>
                     <Form.Control type="text" placeholder="Masukkan no handphone" />
                   </Form.Group>
+                  <Form.Group className="mb-4" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Deskripsi</Form.Label>
+                    <Form.Control as="textarea" rows={5} placeholder="Deskripsikan/jelaskan lebih detail" />
+                  </Form.Group>
+                  <div className="text-center ">
+                    <Button variant="warning" style={{ color: "white", width: "570px" }}>
+                      Hire
+                    </Button>
+                  </div>
                 </Form>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

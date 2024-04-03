@@ -1,14 +1,28 @@
 import NavbarLogin from "@/components/navbarlogin";
 import NavbarProfile from "@/components/navbarprofile";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import miniprofile from "@/assets/img/miniprofile.png";
 import pinmap from "@/assets/img/pinmap.png";
 import Link from "next/link";
 import Footer from "@/components/footer";
+import axios from "axios";
 
 const Home = () => {
+  const [pekerja, setPekerja] = useState([]);
+  const [skill, setSkill] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://template-dummby-json.vercel.app/pekerja`)
+      .then((res) => {
+        setPekerja(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <>
       <NavbarProfile />
@@ -33,6 +47,7 @@ const Home = () => {
               <div className="col-lg-1 col-md-2 col-sm-2">
                 <Image src={miniprofile} alt="miniprofile" className="mx-2" style={{ marginTop: "30px" }} />
               </div>
+
               <div className="col-lg-8 col-md-7 col-sm-6" style={{ paddingLeft: "50px", paddingTop: "10px" }}>
                 <h4>Louis Tomlinson</h4>
                 <p>Web developer</p>

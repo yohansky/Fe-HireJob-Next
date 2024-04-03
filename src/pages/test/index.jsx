@@ -1,20 +1,17 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import getPekerja from "@/configs/redux/actions/pekerjaAction";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Test = () => {
-  const [post, setPost] = useState([]);
+  // const [post, setPost] = useState([]);
+  const dispatch = useDispatch();
+  const { pekerja } = useSelector((state) => state.pekerja);
+  console.log(pekerja);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3001/posts`)
-      .then((res) => {
-        setPost(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(getPekerja());
   }, []);
-  return <div>{JSON.stringify(post)}</div>;
+  return <div>{JSON.stringify(pekerja)}</div>;
 };
 
 export default Test;
