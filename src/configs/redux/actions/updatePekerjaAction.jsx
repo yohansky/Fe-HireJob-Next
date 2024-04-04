@@ -1,4 +1,4 @@
-const { default: axios } = require("axios");
+import axios from "axios";
 
 const updatePekerja = (data, id) => async (dispatch) => {
   try {
@@ -7,8 +7,8 @@ const updatePekerja = (data, id) => async (dispatch) => {
     formData.append("JobType", data.JobType);
     formData.append("CompanyName", data.CompanyName);
     formData.append("Skill", data.Skill);
-    formData.append("UserId", data.UserId);
-    const worker = await axios.put(`https://be-hiring-app-production.up.railway.app/api/v1/user/worker/update/` + id, formData);
+
+    const worker = await axios.put(`https://be-hiring-app-production.up.railway.app/api/v1/user/worker/update/${id}`, formData);
 
     console.log(worker);
     alert("update worker success");

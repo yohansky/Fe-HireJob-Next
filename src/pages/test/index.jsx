@@ -1,7 +1,9 @@
+import ModalEdit from "@/components/modalEdit";
 import createWorker from "@/configs/redux/actions/createPekerjaAction";
 import deleteWorker from "@/configs/redux/actions/deletePekerjaAction";
 // import createPekerja from "@/configs/redux/actions/createPekerjaAction";
 import getWorker from "@/configs/redux/actions/pekerjaAction";
+import updatePekerja from "@/configs/redux/actions/updatePekerjaAction";
 // import getPekerja from "@/configs/redux/actions/pekerjaAction";
 import React, { useEffect, useState } from "react";
 import { Button, Form, Modal, Table } from "react-bootstrap";
@@ -22,12 +24,7 @@ const Test = () => {
     UserId: 0,
   });
 
-  const handleDelete = (id) => {
-    dispatch(deleteWorker(id));
-    handleClose();
-  };
-  //parameternya harus sesuai
-
+  // create
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -36,17 +33,21 @@ const Test = () => {
     }));
   };
 
+  // Delete
+  const handleDelete = (id) => {
+    dispatch(deleteWorker(id));
+    handleClose();
+  };
+  //parameternya harus sesuai
+
+  // CREATE
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(createWorker(formData));
     window.location.reload();
   };
 
-  // JobDesc: data.JobDesc,
-  //     JobType: data.JobType,
-  //     CompanyName: data.CompanyName,
-  //     Skill: data.Skill,
-  // UserId: Number(data.UserId),
+  //  GET
   useEffect(() => {
     dispatch(getWorker());
   }, []);
@@ -106,6 +107,7 @@ const Test = () => {
                   <td>{item.UserId}</td>
                   {/* <td>{item.User}</td> */}
                   <td className="text-center">
+                    {/* Delete */}
                     <Button variant="danger" onClick={handleShow}>
                       Hapus
                     </Button>
@@ -124,6 +126,10 @@ const Test = () => {
                         </Button>
                       </Modal.Footer>
                     </Modal>
+                    {/* Update */}
+                    <ModalEdit id={item.ID} JobDesc={item.JobDesc} JobType={item.JobType} CompanyName={item.CompanyName} Skill={item.Skill}>
+                      Edit
+                    </ModalEdit>
                   </td>
                 </tr>
               ))
