@@ -12,24 +12,43 @@ import axios from "axios";
 const Home = () => {
   const [pekerja, setPekerja] = useState([]);
   const [skill, setSkill] = useState([]);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`https://template-dummby-json.vercel.app/pekerja`)
+      .get(`http://localhost:8080/workers`, { withCredentials: true })
       .then((res) => {
-        setPekerja(res.data);
+        setPekerja(res.data.data);
+        // const workers = setPekerja.filter((user) => user.Role === "Worker")
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  //get user
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/users`, { withCredentials: true })
+      .then((res) => {
+        setUser(res.data.data);
+        console.log(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const displayedUsers = user.slice(0, 6);
+
   return (
     <>
       <NavbarProfile />
-      <div style={{ backgroundColor: "#5E50A1", width: "1488px", height: "100px", border: "1px solid #5E50A1", zIndex: "0", position: "absolute" }}></div>
+
+      <div style={{ backgroundColor: "#5E50A1", width: "100%", height: "100px", border: "1px solid #5E50A1", zIndex: "0", position: "absolute" }}></div>
       <div className="container ">
-        <div style={{ marginTop: "30px", zIndex: "1", position: "relative" }}>
-          <h2 style={{ color: "white" }}>Top Jobs</h2>
+        <div style={{ marginTop: "60px", zIndex: "1", position: "relative" }}>
+          <h2 style={{ color: "white", paddingTop: "10px" }}>Top Jobs</h2>
         </div>
         <div style={{ marginTop: "50px" }}>
           <div className="card">
@@ -38,12 +57,50 @@ const Home = () => {
               <Button variant="outline-secondary">Kategori</Button>
               <Button variant="outline-secondary">Search</Button>
             </InputGroup>
+            {JSON.stringify(user)}
+            {/* {JSON.stringify(pekerja)} */}
           </div>
         </div>
         {/*  */}
+
         <div className="mt-4" style={{ marginTop: "50px" }}>
           <div className="card">
-            <div className="row">
+            {displayedUsers ? (
+              displayedUsers.map((item) => (
+                <div key={item.id} className="row cardhome">
+                  <div className="col-lg-1 col-md-2 col-sm-2">
+                    <Image src={miniprofile} alt="miniprofile" className="mx-2" style={{ marginTop: "30px" }} />
+                  </div>
+
+                  <div className="col-lg-8 col-md-7 col-sm-6" style={{ paddingLeft: "50px", paddingTop: "10px" }}>
+                    {/* cara ambil data relasi */}
+                    <h4>{item.Nama}</h4>
+                    <p>
+                      {item.Jabatan} at {item.Perusahaan}
+                    </p>
+                    <Image src={pinmap} alt="pinmap" /> {item.domisili}
+                    <div className="row mt-2 mb-3">
+                      <div className="col">
+                        <div className="card" style={{ width: "70px", height: "28px", backgroundColor: "#FBB017" }}>
+                          <p className="me-auto mx-auto">PHP</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-lg-3 col-md-3 col-sm-4" style={{ paddingTop: "50px" }}>
+                    <Link href={`/profileuser/${item.id}`}>
+                      <button type="button" className="btn" style={{ backgroundColor: "#5E50A1", padding: "10px 20px", cursor: "pointer", color: "white", marginLeft: "16px" }}>
+                        Lihat Profile
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p>Loading ...</p>
+            )}
+
+            {/* <div className="row cardhome">
               <div className="col-lg-1 col-md-2 col-sm-2">
                 <Image src={miniprofile} alt="miniprofile" className="mx-2" style={{ marginTop: "30px" }} />
               </div>
@@ -68,7 +125,7 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-            {/*  */}
+            
             <div className="row ">
               <div className="col-lg-1 col-md-2 col-sm-2 ">
                 <Image src={miniprofile} alt="miniprofile" className="mx-2" style={{ marginTop: "30px" }} />
@@ -91,7 +148,7 @@ const Home = () => {
                 </button>
               </div>
             </div>
-            {/*  */}
+            
             <div className="row ">
               <div className="col-lg-1 col-md-2 col-sm-2 ">
                 <Image src={miniprofile} alt="miniprofile" className="mx-2" style={{ marginTop: "30px" }} />
@@ -113,7 +170,7 @@ const Home = () => {
                   Lihat Profile
                 </button>
               </div>
-            </div>
+            </div> */}
             {/*  */}
           </div>
         </div>

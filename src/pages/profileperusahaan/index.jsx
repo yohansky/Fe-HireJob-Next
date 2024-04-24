@@ -16,7 +16,7 @@ const ProfilePerusahaan = () => {
       <NavbarProfile />
       <div className="container">
         <div className="card rounded" style={{ marginTop: "40px" }}>
-          <div className="rounded" style={{ backgroundColor: "#5E50A1", height: "200px", width: "1300px", zIndex: "0", position: "absolute" }}></div>
+          <div className="rounded" style={{ backgroundColor: "#5E50A1", height: "200px", width: "100%", zIndex: "0", position: "absolute" }}></div>
           <div className="d-flex justify-content-center" style={{ zIndex: "1", position: "relative", marginTop: "120px" }}>
             {/* <div className="d-flex flex-column"> */}
             <Image src={ppp} alt="ppp" />

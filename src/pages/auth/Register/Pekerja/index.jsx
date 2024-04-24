@@ -32,14 +32,14 @@ const RegisterPekerja = () => {
 
   return (
     <>
-      <div className="container" style={{ paddingTop: "20px" }}>
-        <div className="row" style={{ width: "1360px" }}>
-          <div className="col-md-6">
-            <div style={{ width: "650px", height: "700px", border: "1px solid #5E50A1", backgroundColor: "#5E50A1" }}>
-              <Image src={bg1} alt="background1" style={{ width: "650px", height: "700px" }} />
+      <div className="container tengah" style={{ marginTop: "30px" }}>
+        <div className="row">
+          <div className="col-lg-6">
+            <div className="gambar" style={{ width: "100%", height: "700px" }}>
+              <Image src={bg1} alt="background1" style={{ width: "100%", height: "700px" }} />
             </div>
           </div>
-          <div className="col-md-6" style={{ paddingTop: "10px", paddingRight: "100px" }}>
+          <div className="col-lg-6 col-md-12 p-3" style={{ paddingTop: "10px", paddingRight: "100px" }}>
             <h2>Halo, Pewpeople</h2>
             <p className="mt-3">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque eligendi omnis aliquid dolor numquam, quas, odio suscipit assumenda iste facere amet doloremque a ipsum reprehenderit alias blanditiis quidem nemo ab.
@@ -60,7 +60,7 @@ const RegisterPekerja = () => {
               <Button
                 type="submit"
                 className="btn btn-warning mb-4 mt-3"
-                style={{ color: "white", width: "570px" }}
+                style={{ color: "white", width: "100%" }}
                 disabled={nama.trim() === "" || email.trim() === "" || handphone.trim() === "" || password.trim() === "" || confirmPassword.trim() === ""}
                 href="/auth/Login"
               >

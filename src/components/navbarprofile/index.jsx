@@ -10,7 +10,7 @@ import Link from "next/link";
 const NavbarProfile = () => {
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary test">
+      <Navbar expand="lg" className=" bg-body-tertiary test" fixed="top">
         <Container fluid>
           <Navbar.Brand href="/landingpage">
             <Image src={icon} alt="Logo1" style={{ marginLeft: "50px" }} />
@@ -28,7 +28,7 @@ const NavbarProfile = () => {
               <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
               <Button variant="outline-success">Search</Button>
             </Form> */}
-            <div className="d-flex flex-row">
+            <div className="d-flex flex-row" style={{ margin: "auto 6vw" }}>
               <div className="bell" style={{ marginRight: "20px" }}>
                 <a href="#">
                   <Image src={bell} alt="bell" />

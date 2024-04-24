@@ -4,32 +4,47 @@ import bg1 from "@/assets/img/bg1.png";
 import { Form, Button } from "react-bootstrap";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 const Login = () => {
   const router = useRouter();
   const [token, setToken] = useState("");
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    Email: "",
+    Password: "",
   });
 
-  const { email, password } = formData;
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const { Email, Password } = formData;
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios
+      .post(`http://localhost:8080/login`, formData, { withCredentials: true })
+      .then((res) => {
+        console.log(res.data);
+        // localStorage.setItem("userid", res.data.Email);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-    if (email.trim() === "" || password.trim() === "") {
+    if (Email.trim() === "" || Password.trim() === "") {
       alert("Harap isi semua kolom form");
       return;
     }
+
     setToken("token saya");
     localStorage.setItem("token", Date.now());
     router.push("/landingpage");
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+    // console.log(formData);
   };
 
   useEffect(() => {
@@ -41,12 +56,12 @@ const Login = () => {
     <>
       <div className="container" style={{ paddingTop: "20px" }}>
         <div className="row border">
-          <div className="col-md-6">
-            <div style={{}}>
-              <Image className="gambar" src={bg1} alt="background1" style={{ width: "650px", height: "822px" }} />
+          <div className="col-lg-6">
+            <div className="gambar" style={{}}>
+              <Image src={bg1} alt="background1" style={{ width: "100%", height: "822px" }} />
             </div>
           </div>
-          <div className="col-md-6" style={{ paddingTop: "106px", paddingLeft: "70px" }}>
+          <div className="col-lg-6 col-md-12" style={{ paddingTop: "106px", paddingLeft: "20px" }}>
             <h2>Halo, Pewpeople</h2>
             <p className="mt-3">
               {" "}
@@ -55,15 +70,15 @@ const Login = () => {
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3 mt-4" controlId="exampleForm.ControlInput1">
                 <Form.Label>Email</Form.Label>
-                <Form.Control size="lg" type="email" name="email" value={email} onChange={handleChange} placeholder="Masukkan alamat Email" />
+                <Form.Control size="lg" type="email" name="Email" value={formData.Email} onChange={handleChange} placeholder="Masukkan alamat Email" />
                 <Form.Label className="mt-4 mb-3">Kata Sandi</Form.Label>
-                <Form.Control size="lg" type="password" name="password" value={password} onChange={handleChange} placeholder="Masukkan kata sandi" />
+                <Form.Control size="lg" type="password" name="Password" value={formData.Password} onChange={handleChange} placeholder="Masukkan kata sandi" />
               </Form.Group>
               <a href="/auth/Reset/Password">
                 <p className="mt-4 text-sm-end">Lupa kata sandi?</p>
               </a>
               <div style={{ textAlign: "center" }}>
-                <Button type="submit" className="btn btn-warning mb-4" style={{ color: "white", width: "200px" }} disabled={email.trim() === "" || password.trim() === ""}>
+                <Button type="submit" className="btn btn-warning mb-4" style={{ color: "white", width: "100%" }} disabled={Email.trim() === "" || Password.trim() === ""}>
                   {/* href="/landingpage" */}
                   Masuk
                 </Button>

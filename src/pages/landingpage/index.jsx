@@ -7,7 +7,6 @@ import g2 from "@/assets/img/g2.png";
 import checklist from "@/assets/img/checklist.png";
 import g3 from "@/assets/img/g3.png";
 import checklist2 from "@/assets/img/checklist2.png";
-import Slider from "react-slick";
 import iconputih from "@/assets/img/iconputih.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -15,57 +14,52 @@ import NavbarLogin from "@/components/navbarlogin";
 import Footer from "@/components/footer";
 import Link from "next/link";
 import NavbarProfile from "@/components/navbarprofile";
+import Carousel from "@/components/carousel";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const LandingPage = () => {
   const [getDisplayName, setDisplay] = useState(true);
   const [width, setWidth] = useState(600);
   const [token, setToken] = useState("");
+  const [userId, setUserId] = useState("");
+
+  //get user
+  useEffect(() => {
+    // Hapus spasi ekstra dari cookie
+    const cookieValue = document.cookie.cookieValue;
+    console.log(cookieValue);
+    // Ambil nilai cookie dengan nama 'jwt'
+    // const jwtToken = cookieValue
+    // .split(";")
+    // .find((row) => row.startsWith("jwt="))
+    // ?.split("=")[1];
+
+    // console.log(jwtToken);
+
+    axios
+      .get(`http://localhost:8080/user`, { withCredentials: true })
+      .then((res) => {
+        // setUser(res.data);
+        console.log(res.data);
+        localStorage.setItem("userid", res.data.id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   useEffect(() => {
     setToken(localStorage.getItem("token"));
-  }, []);
-
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+    setUserId(localStorage.getItem("userid"));
+  }, [token, userId]);
 
   return (
     <>
-      {token ? <NavbarProfile /> : <NavbarLogin />}
-      <div className="container">
-        <div className="row" style={{ marginTop: "147px" }}>
-          <div className="col-lg-6 col-md-4 col-sm-12 mb-3" style={{ paddingTop: "136px" }}>
+      {token && userId ? <NavbarProfile /> : <NavbarLogin />}
+      <div className="container" style={{ marginTop: "10vh" }}>
+        <div className="row mt-5">
+          <div className="col-lg-6 col-md-12 mb-3 order-md-2 order-lg-1 pl-3" style={{ paddingTop: "136px" }}>
             <h2>Talenta terbaik negri untuk perubahan revolusi 4.0</h2>
             <p className="mt-2">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam harum facere cumque, consequatur, inventore earum, consequuntur quis soluta nesciunt dolore similique minima vitae impedit excepturi. Esse minus aperiam cumque
@@ -77,16 +71,16 @@ const LandingPage = () => {
               </Button>
             </Link>
           </div>
-          <div className="col-lg-6 col-md-6 col-sm-12">
+          <div className="col-lg-6 col-md-12 order-md-1 order-lg-2">
             <Image src={g1} className="gambar1" alt="gambar1" style={{ marginLeft: "60px" }} />
           </div>
         </div>
-        {/* belum responsive */}
+
         <div className="row" style={{ marginTop: "152px" }}>
-          <div className="col-sm-12 col-md-9 col-lg-7">
+          <div className="col-lg-6 col-md-12">
             <Image src={g2} alt="gambar2" className="gambar2" />
           </div>
-          <div className="col-sm-12 col-md-3 col-lg-5" style={{ paddingTop: "30px" }}>
+          <div className="col-lg-6 col-md-12" style={{ paddingTop: "30px", paddingLeft: "9vw" }}>
             <h2>Kenapa harus mencari tallent di peworld</h2>
 
             <p style={{ marginTop: "36px" }}>
@@ -109,7 +103,7 @@ const LandingPage = () => {
         </div>
         {/*  */}
         <div className="row" style={{ marginTop: "152px" }}>
-          <div className="col-lg-6 col-sm-12">
+          <div className="col-lg-6 col-sm-12 p-3">
             <h2>Skill Tallent</h2>
             <p className="mt-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores commodi quod velit, provident consequuntur similique perferendis cumque, voluptatum, temporibus voluptate alias voluptatem quia minus quo maiores eos vel
@@ -162,39 +156,17 @@ const LandingPage = () => {
         <div className="" style={{ marginTop: "155px" }}>
           <div className="" style={{ textAlign: "center" }}>
             <h2>Their opinion about peworld</h2>
-            <div className="slider-container" style={{ marginTop: "52px" }}>
-              <Slider {...settings}>
-                <div>
-                  <div className="card" style={{ width: "339px", height: "437px", borderradius: "8px", boxshadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}>
-                    <h3>Harry Styles</h3>
-                  </div>
-                </div>
-                <div>
-                  <div className="card" style={{ width: "339px", height: "437px", borderradius: "8px", boxshadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}>
-                    <h3>Niall Horan</h3>
-                  </div>
-                </div>
-                <div>
-                  <div className="card" style={{ width: "339px", height: "437px", borderradius: "8px", boxshadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}>
-                    <h3>Louis Tomlinson</h3>
-                  </div>
-                </div>
-                <div>
-                  <div className="card" style={{ width: "339px", height: "437px", borderradius: "8px", boxshadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}>
-                    <h3>Yohanes Hubert</h3>
-                  </div>
-                </div>
-              </Slider>
-            </div>
+
+            <Carousel />
           </div>
         </div>
         {/*  */}
-        <div className="d-flex justify-content-center" style={{ marginTop: "232px" }}>
-          <div className="card" style={{ width: "1140px", height: "227px", borderRadius: "40px, 8px, 40px, 8px", backgroundColor: "#5E50A1" }}>
+        <div className="d-flex justify-content-center mt-5">
+          <div className="card" style={{ width: "100%", height: "227px", borderRadius: "40px 8px 40px 8px", backgroundColor: "#5E50A1", padding: "10px" }}>
             <div className="d-flex justify-content-around align-items-center my-auto">
-              <h2>Lorem ipsum dolor sit amet</h2>
+              <h2 style={{ color: "white" }}>Lorem ipsum dolor sit amet</h2>
               <Link href="/profileperusahaan">
-                <button type="button" className="btn ml-1" style={{ width: "210px", height: "63px", backgroundColor: "white", padding: "10px 20px", cursor: "pointer", color: "#796EAF", marginLeft: "16px" }}>
+                <button type="button" className="btn ml-1" style={{ height: "63px", backgroundColor: "white", padding: "10px 20px", cursor: "pointer", color: "#796EAF", marginLeft: "16px" }}>
                   Mulai Dari Sekarang
                 </button>
               </Link>

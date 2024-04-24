@@ -9,6 +9,7 @@ import NavbarProfile from "@/components/navbarprofile";
 import Footer from "@/components/footer";
 
 const EditProfile = () => {
+  // logika : saat klik edit profile userid disimpan di localstorage | form skill,project,experience mempunyai userid | userid yang di dapatkan dari localstorage | nanti ketika sudah post dari form; id experience, id skill, id project di set ke local storage | lalu di append ke relasi/kolom di tabel worker (ke id skill, id project, id experience)
   const [pekerja, setPekerja] = useState([]);
 
   useEffect(() => {
@@ -30,11 +31,11 @@ const EditProfile = () => {
     col1 = card=tag a edit, nama, position, alamat, status, btnsimpan,btn batal
     col2 = card= form input, card=skill, card=form btntambah,card= form+radio btntambah  */}
       <NavbarProfile />
-      <div style={{ backgroundColor: "#5E50A1", width: "1488px", height: "500px", border: "1px solid #5E50A1", zIndex: "0", position: "absolute" }}></div>
+      <div style={{ backgroundColor: "#5E50A1", width: "100%", height: "500px", border: "1px solid #5E50A1", zIndex: "0", position: "absolute" }}></div>
       <div className="container">
         <div style={{ marginTop: "80px", zIndex: "1", position: "relative" }}>
           <div className="row">
-            <div className="col-4">
+            <div className="col-lg-4 col-md-12">
               <div className="card rounded p-2">
                 <Image src={pp} alt="pp" style={{ alignSelf: "center" }} className="mt-4" />
                 <a href="" style={{ alignSelf: "center" }}>
@@ -49,15 +50,15 @@ const EditProfile = () => {
                   </h4>
                   <h4>{pekerja.Status}</h4>
                 </div>
-              </div>
-              <div className="mt-3" style={{ textAlign: "center" }}>
-                <Button style={{ width: "357px", height: "50px" }}>Simpan</Button>
-                <Button className="mt-2" style={{ width: "357px", height: "50px" }}>
+                <Button style={{ width: "100%", height: "50px" }}>Simpan</Button>
+                <Button className="mt-2" style={{ width: "100%", height: "50px" }}>
                   Batal
                 </Button>
               </div>
+
+              <div className="mt-3" style={{ textAlign: "center" }}></div>
             </div>
-            <div className="col">
+            <div className="col-lg-8 col-md-12">
               <div className="card rounded p-2 mb-3" style={{ marginLeft: "10px" }}>
                 <div className="mt-3" style={{ marginLeft: "20px" }}>
                   <h4>Data Diri</h4>

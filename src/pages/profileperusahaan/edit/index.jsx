@@ -26,7 +26,7 @@ const EditPerusahaan = () => {
       <div className="container">
         <div style={{ marginTop: "80px", zIndex: "1", position: "relative" }}>
           <div className="row">
-            <div className="col-4">
+            <div className="col-lg-4 col-md-12">
               <div className="card rounded p-2">
                 <Image src={pp} alt="pp" style={{ alignSelf: "center" }} className="mt-4" />
                 <a href="" style={{ alignSelf: "center" }}>
@@ -40,16 +40,16 @@ const EditPerusahaan = () => {
                     <Image src={pinmap} alt="pinmap" /> {Perusahaan.Alamat}
                   </h4>
                 </div>
-              </div>
-              <div className="mt-3" style={{ textAlign: "center" }}>
-                <Button style={{ width: "357px", height: "50px" }}>Simpan</Button>
-                <Button className="mt-2" style={{ width: "357px", height: "50px" }}>
-                  Batal
-                </Button>
+                <div className="text-center">
+                  <Button style={{ width: "80%", height: "50px" }}>Simpan</Button>
+                  <Button className="mt-2" style={{ width: "80%", height: "50px" }}>
+                    Batal
+                  </Button>
+                </div>
               </div>
             </div>
-            <div className="col">
-              <div className="card rounded p-2 mb-3" style={{ marginLeft: "10px" }}>
+            <div className="col-lg-8 col-md-12 cardmd">
+              <div className="card rounded p-2 mb-3">
                 <div className="mt-3" style={{ marginLeft: "20px" }}>
                   <h4>Data Diri</h4>
                   <div style={{ marginTop: "35px" }}>

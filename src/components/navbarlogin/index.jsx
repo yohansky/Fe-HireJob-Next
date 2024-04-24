@@ -7,14 +7,14 @@ import Link from "next/link";
 const NavbarLogin = () => {
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="bg-body-tertiary" fixed="top">
         <Container fluid>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/landingpage">
             <Image src={icon} alt="Logo1" style={{ marginLeft: "50px" }} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto my-2 my-lg-0" navbarScroll>
+            <Nav className="me-auto my-2 my-lg-0 " navbarScroll>
               {/* <Nav.Link href="/auth/Login">
                 <button type="button" className="btn" style={{ border: "1px solid #5E50A1", color: "#5E50A1", padding: "10px 20px", cursor: "pointer", marginLeft: "800px" }}>
                   Masuk

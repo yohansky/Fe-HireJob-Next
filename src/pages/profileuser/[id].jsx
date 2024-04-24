@@ -1,5 +1,6 @@
-import NavbarProfile from "@/components/navbarprofile";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import NavbarProfile from "@/components/navbarprofile";
 import pp from "@/assets/img/profilepic.png";
 import Image from "next/image";
 import axios from "axios";
@@ -9,79 +10,95 @@ import Footer from "@/components/footer";
 import Link from "next/link";
 import f1 from "@/assets/img/f1.png";
 import tokped from "@/assets/img/tokped.png";
+import { useParams } from "next/navigation";
 
-const Profile = () => {
+const UserDetail = () => {
+  const router = useRouter();
+  //   const { id } = router.query;
+  const [user, setUser] = useState([]);
   const [pekerja, setPekerja] = useState([]);
-  const [portofolio, setPortofolio] = useState([]);
   const [skill, setSkill] = useState([]);
+  const [portofolio, setPortofolio] = useState([]);
   const [pengalaman, setPengalaman] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`https://template-dummby-json.vercel.app/pekerja`)
+      .get(`http://localhost:8080/user/${router.query.id}`, { withCredentials: true })
       .then((res) => {
-        setPekerja(res.data[0]);
+        setUser(res.data);
+        console.log(res.data);
+        //buat kondisi
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
+  //   useEffect(() => {
+  //     const userId = parseInt(router.query.id); // Konversi ID menjadi bilangan bulat
+
+  //     axios
+  //       .get(`http://localhost:8080/worker/${userId}`, { withCredentials: true })
+  //       .then((res) => {
+  //         const filteredPekerja = res.data.data.filter((Worker) => Worker.UserId === 26);
+  //         setPekerja(filteredPekerja);
+  //         console.log(filteredPekerja);
+  //         console.log(pekerja); // Perhatikan bahwa variabel pekerja mungkin belum terdefinisi di sini
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }, []);
+
   useEffect(() => {
     axios
-      .get(`https://template-dummby-json.vercel.app/portofolio`)
+      .get(`http://localhost:8080/user/${router.query.id}`, { withCredentials: true })
       .then((res) => {
-        setPortofolio(res.data);
+        const userId = res.data.id; // Ambil UserId dari respons User
+        console.log("UserId User:", userId);
+
+        axios
+          .get(`http://localhost:8080/worker/${userId}`, { withCredentials: true })
+          .then((res) => {
+            const filteredPekerja = res.data.filter((Worker) => Worker.UserId === userId);
+            setPekerja(filteredPekerja);
+            console.log("Filtered Pekerja:", filteredPekerja);
+            console.log("Pekerja:", pekerja); // Pastikan variabel pekerja sudah terdefinisi sebelum digunakan di sini
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  useEffect(() => {
-    axios
-      .get(`https://template-dummby-json.vercel.app/skill`)
-      .then((res) => {
-        setSkill(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(`https://template-dummby-json.vercel.app/pengalaman`)
-      .then((res) => {
-        setPengalaman(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const displayedSkill = skill.slice(0, 6);
 
   return (
     <>
       <NavbarProfile />
-      <div style={{ backgroundColor: "#5E50A1", width: "1488px", height: "500px", border: "1px solid #5E50A1", zIndex: "0", position: "absolute" }}></div>
+      <div style={{ backgroundColor: "#5E50A1", width: "100%", height: "500px", border: "1px solid #5E50A1", zIndex: "0", position: "absolute" }}></div>
       <div className="container">
         <div style={{ marginTop: "80px", zIndex: "1", position: "relative" }}>
           <div className="row">
-            <div className="col-4">
+            <div className="col-lg-4 col-md-12">
               <div className="card rounded p-2">
                 <Image src={pp} alt="pp" style={{ alignSelf: "center" }} className="mt-3 mb-3" />
                 <div style={{ paddingLeft: "20px" }}>
-                  {/* {JSON.stringify(pekerja)} */}
-                  <h3>{pekerja.Name}</h3>
-                  <h5>{pekerja.Pekerjaan}</h5>
+                  {JSON.stringify(user)}
+                  {/* untuk mengambil object(relasi) di dalam object */}
+                  <h3>{user.Nama} </h3>
+                  <h5>{pekerja.jobdesk}</h5>
                   <h5>
-                    <Image src={pinmap} alt="pinmap" /> {pekerja.Alamat}
+                    <Image src={pinmap} alt="pinmap" /> {pekerja.domisili}
                   </h5>
-                  <h5>{pekerja.Status}</h5>
-                  <h5 className="mt-2 mb-3">{pekerja.Deskripsi}</h5>
+                  <h5>Manager</h5>
+                  <h5 className="mt-2 mb-3">{pekerja.desc}</h5>
                   <div className="text-center">
                     <Link href="/hire">
-                      <Button style={{ backgroundColor: "#5E50A1", color: "white", width: "350px" }}>Hire</Button>
+                      <Button style={{ backgroundColor: "#5E50A1", color: "white", width: "100%" }}>Hire</Button>
                     </Link>
                   </div>
                   <h3 className="mt-3">Skill</h3>
@@ -90,7 +107,7 @@ const Profile = () => {
                     {skill ? (
                       skill.map((item) => (
                         <div className="col card" style={{ backgroundColor: "#fdd074" }}>
-                          {item.Nama_skill}
+                          {item.nama}
                         </div>
                       ))
                     ) : (
@@ -100,7 +117,7 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <div className="col">
+            <div className="col-lg-8 col-md-12 cardmd">
               <div className="card rounded p-2">
                 <div style={{ marginLeft: "30px", marginTop: "10px" }}>
                   <Tab.Container defaultActiveKey="first">
@@ -131,12 +148,12 @@ const Profile = () => {
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
                         {pengalaman.map((item) => (
-                          <div className="mt-4 mb-3 row d-flex flex-row flex-wrap" style={{ paddingRight: "20px" }}>
-                            <div className="col-2" style={{ paddingTop: "20px", textAlign: "center" }}>
+                          <div className="mt-4 mb-3 row flex-wrap" style={{ paddingRight: "20px" }}>
+                            <div className="col-lg-2 col-md-2" style={{ paddingTop: "20px", textAlign: "center" }}>
                               <Image src={tokped} alt="tokped" />
                             </div>
 
-                            <div className="col-10">
+                            <div className="col-lg-10 col-md-10">
                               <h3>{item.Posisi}</h3>
                               <h4>{item.Nama}</h4>
                               <p className="mt-3">{item.Desc}</p>
@@ -161,4 +178,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default UserDetail;

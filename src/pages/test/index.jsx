@@ -126,7 +126,7 @@ const Test = () => {
                         </Button>
                       </Modal.Footer>
                     </Modal>
-                    {/* Update */}
+                    {/* Update perhatikan idnya huruf kecil*/}
                     <ModalEdit id={item.ID} JobDesc={item.JobDesc} JobType={item.JobType} CompanyName={item.CompanyName} Skill={item.Skill}>
                       Edit
                     </ModalEdit>

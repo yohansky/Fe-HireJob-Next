@@ -42,7 +42,7 @@ const Hire = () => {
       <div className="container">
         <div style={{ marginTop: "80px" }}>
           <div className="row">
-            <div className="col-4">
+            <div className="col-lg-4 col-md-12">
               <div className="card rounded p-2">
                 <Image src={pp} alt="pp" style={{ alignSelf: "center" }} className="mt-3 mb-3" />
                 <div style={{ paddingLeft: "20px" }}>
@@ -64,7 +64,7 @@ const Hire = () => {
                 </div>
               </div>
             </div>
-            <div className="col" style={{ paddingRight: "10px", paddingLeft: "40px" }}>
+            <div className="col-lg-8 col-md-12 mt-md-3" style={{ paddingRight: "10px", paddingLeft: "40px" }}>
               <h2>Hubungi {pekerja.Name}</h2>
               <p className="mt-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id explicabo animi porro vel maxime minus dolore rerum? Hic quo ea autem dicta incidunt! Earum rerum hic ab quisquam tempore nulla?</p>
               <div className="mt-4">
@@ -95,7 +95,7 @@ const Hire = () => {
                     <Form.Control as="textarea" rows={5} placeholder="Deskripsikan/jelaskan lebih detail" />
                   </Form.Group>
                   <div className="text-center ">
-                    <Button variant="warning" style={{ color: "white", width: "570px" }}>
+                    <Button variant="warning" style={{ color: "white", width: "80%" }}>
                       Hire
                     </Button>
                   </div>
