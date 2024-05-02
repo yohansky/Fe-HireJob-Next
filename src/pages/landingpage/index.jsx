@@ -19,44 +19,27 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const LandingPage = () => {
-  const [getDisplayName, setDisplay] = useState(true);
-  const [width, setWidth] = useState(600);
   const [token, setToken] = useState("");
   const [userId, setUserId] = useState("");
 
-  //get user
   useEffect(() => {
-    // Hapus spasi ekstra dari cookie
-    const cookieValue = document.cookie.cookieValue;
-    console.log(cookieValue);
-    // Ambil nilai cookie dengan nama 'jwt'
-    // const jwtToken = cookieValue
-    // .split(";")
-    // .find((row) => row.startsWith("jwt="))
-    // ?.split("=")[1];
-
-    // console.log(jwtToken);
-
     axios
       .get(`http://localhost:8080/user`, { withCredentials: true })
       .then((res) => {
-        // setUser(res.data);
-        console.log(res.data);
-        localStorage.setItem("userid", res.data.id);
+        setToken(localStorage.getItem("token"));
+        if (token) {
+          localStorage.setItem("userid", res.data.id);
+        }
+        setUserId(localStorage.getItem("userid"));
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-
-  useEffect(() => {
-    setToken(localStorage.getItem("token"));
-    setUserId(localStorage.getItem("userid"));
   }, [token, userId]);
 
   return (
     <>
-      {token && userId ? <NavbarProfile /> : <NavbarLogin />}
+      {token && userId ? <NavbarProfile userId={userId} /> : <NavbarLogin />}
       <div className="container" style={{ marginTop: "10vh" }}>
         <div className="row mt-5">
           <div className="col-lg-6 col-md-12 mb-3 order-md-2 order-lg-1 pl-3" style={{ paddingTop: "136px" }}>

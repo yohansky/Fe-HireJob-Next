@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
 import bell from "@/assets/img/bell.png";
 import mail from "@/assets/img/mail.png";
@@ -6,8 +6,23 @@ import navprofile from "@/assets/img/navbarprofile.png";
 import Image from "next/image";
 import icon from "@/assets/img/icon.png";
 import Link from "next/link";
+import axios from "axios";
 
-const NavbarProfile = () => {
+const NavbarProfile = ({ userId }) => {
+  const [pekerja, setPekerja] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/user/${userId}/worker`, { withCredentials: true })
+      .then((res) => {
+        // setPekerja(res.data);
+        setPekerja(res.data[0].id);
+        console.log(res.data[0].id);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [userId]);
   return (
     <>
       <Navbar expand="lg" className=" bg-body-tertiary test" fixed="top">
@@ -40,7 +55,8 @@ const NavbarProfile = () => {
                 </a>
               </div>
               <div className="navbarprofile" style={{ marginRight: "60px" }}>
-                <Link href="/profileuser/edit">
+                <Link href={`/profileuser/${pekerja}`}>
+                  {/* <Link href={`/profileuser/edit/${pekerja}`}> */}
                   <Image src={navprofile} alt="profilenavbar" />
                 </Link>
               </div>

@@ -13,10 +13,9 @@ import tokped from "@/assets/img/tokped.png";
 import { useParams } from "next/navigation";
 import NavbarLogin from "@/components/navbarlogin";
 
-const UserDetail = () => {
+const FindWorker = () => {
   const router = useRouter();
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
+  //   const { id } = router.query;
   const [user, setUser] = useState([]);
   const [pekerja, setPekerja] = useState([]);
   const [idWorker, setIdWorker] = useState([]);
@@ -32,6 +31,9 @@ const UserDetail = () => {
     setUserId(localStorage.getItem("userid"));
     // ambil userid dari getitem localstorage (sama seperti conditional rendering navbar di landingpage)
   }, [token, userId]);
+
+  //logika : kan userid sudah didapat di local storgare | nanti masukkan di param endpoint "?UserId=${localstorage.userid}"
+  //saat masuk halaman ini juga ahrus setlocalstorage untuk user worker
 
   useEffect(() => {
     axios
@@ -88,28 +90,6 @@ const UserDetail = () => {
     }
   }, [idWorker]);
 
-  const handleDeleteProject = (id) => {
-    try {
-      axios.delete(`http://localhost:8080/project/${id}`, { withCredentials: true });
-      console.log("Delete Berhasil");
-      alert("Delete Berhasil");
-    } catch (err) {
-      console.log(err.message);
-      alert("Delete Failed");
-    }
-  };
-
-  const handleDeleteExperience = (id) => {
-    try {
-      axios.delete(`http://localhost:8080/experience/${id}`, { withCredentials: true });
-      console.log("Delete Berhasil");
-      alert("Delete Berhasil");
-    } catch (err) {
-      console.log(err.message);
-      alert("Delete Failed");
-    }
-  };
-
   return (
     <>
       {token && userId ? <NavbarProfile userId={userId} /> : <NavbarLogin />}
@@ -120,7 +100,7 @@ const UserDetail = () => {
             <div className="col-lg-4 col-md-12">
               <div className="card rounded p-2">
                 <Image src={pp} alt="pp" style={{ alignSelf: "center" }} className="mt-3 mb-3" />
-                <div style={{ padding: "10px" }}>
+                <div style={{ paddingLeft: "20px" }}>
                   {/* {JSON.stringify(pekerja)} */}
                   {/* untuk mengambil object(relasi) di dalam object */}
                   <h3>{pekerja.nama} </h3>
@@ -128,11 +108,11 @@ const UserDetail = () => {
                   <h5>
                     <Image src={pinmap} alt="pinmap" /> {pekerja.domisili}
                   </h5>
-                  <h5>at {pekerja.tempatkerja}</h5>
+                  <h5>{pekerja.jobdesk}</h5>
                   <h5 className="mt-2 mb-3">{pekerja.desc}</h5>
-                  <div className="">
-                    <Link href={`/profileuser/edit/${pekerja.id}`}>
-                      <Button style={{ backgroundColor: "#5E50A1", color: "white", width: "100%" }}>Edit</Button>
+                  <div className="text-center">
+                    <Link href={`/hire/${pekerja.id}`}>
+                      <Button style={{ backgroundColor: "#5E50A1", color: "white", width: "100%" }}>Hire</Button>
                     </Link>
                   </div>
                   <h3 className="mt-3">Skill</h3>
@@ -164,7 +144,7 @@ const UserDetail = () => {
                     </Row>
                     <Tab.Content>
                       <Tab.Pane eventKey="first">
-                        <div className="row gap-3 mb-3 d-flex flex-row flex-wrap text-center mt-4 border" style={{ marginRight: "20px" }}>
+                        <div className="row gap-3 mb-3 d-flex flex-row flex-wrap text-center mt-4" style={{ paddingRight: "20px" }}>
                           {portofolio.map((item) => (
                             <div className="col">
                               {/* {JSON.stringify(portofolio)} */}
@@ -172,9 +152,6 @@ const UserDetail = () => {
                                 <Image src={f1} alt="forto1" />
                                 <Card.Body>
                                   <Card.Title>{item.nama}</Card.Title>
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onClick={() => handleDeleteProject(item.id)} style={{ cursor: "pointer" }}>
-                                    <path fill="#FF0000" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                  </svg>
                                 </Card.Body>
                               </Card>
                             </div>
@@ -189,17 +166,12 @@ const UserDetail = () => {
                               <Image src={tokped} alt="tokped" />
                             </div>
 
-                            <div className="col-lg-9 col-md-9">
+                            <div className="col-lg-10 col-md-10">
                               <h3>{item.posisi}</h3>
                               <h4>
                                 {item.perusahaan} {item.tahun}
                               </h4>
                               <p className="mt-3">{item.deskripsi}</p>
-                            </div>
-                            <div className="col-lg-1 col-md-1 mx-auto my-auto">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" onClick={() => handleDeleteExperience(item.id)} style={{ cursor: "pointer" }}>
-                                <path fill="#FF0000" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                              </svg>
                             </div>
                           </div>
                         ))}
@@ -221,4 +193,4 @@ const UserDetail = () => {
   );
 };
 
-export default UserDetail;
+export default FindWorker;

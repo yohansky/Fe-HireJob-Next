@@ -1,5 +1,5 @@
 import NavbarProfile from "@/components/navbarprofile";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ppp from "@/assets/img/ppp.png";
 import Image from "next/image";
 import pinmap from "@/assets/img/pinmap.png";
@@ -9,11 +9,21 @@ import Link from "next/link";
 import mail from "@/assets/img/mail.png";
 import phone from "@/assets/img/phone.png";
 import linked from "@/assets/img/linkedin.png";
+import NavbarLogin from "@/components/navbarlogin";
 
 const ProfilePerusahaan = () => {
+  const [token, setToken] = useState("");
+  const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    //useeffect akan membaca perubahan data
+    setToken(localStorage.getItem("token"));
+    setUserId(localStorage.getItem("userid"));
+    // ambil userid dari getitem localstorage (sama seperti conditional rendering navbar di landingpage)
+  }, [token, userId]);
   return (
     <>
-      <NavbarProfile />
+      {token && userId ? <NavbarProfile userId={userId} /> : <NavbarLogin />}
       <div className="container">
         <div className="card rounded" style={{ marginTop: "40px" }}>
           <div className="rounded" style={{ backgroundColor: "#5E50A1", height: "200px", width: "100%", zIndex: "0", position: "absolute" }}></div>

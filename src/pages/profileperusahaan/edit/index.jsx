@@ -5,9 +5,19 @@ import pp from "@/assets/img/profilepic.png";
 import pinmap from "@/assets/img/pinmap.png";
 import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
 import axios from "axios";
+import NavbarLogin from "@/components/navbarlogin";
 
 const EditPerusahaan = () => {
   const [Perusahaan, setPerusahaan] = useState([]);
+  const [token, setToken] = useState("");
+  const [userId, setUserId] = useState("");
+
+  useEffect(() => {
+    //useeffect akan membaca perubahan data
+    setToken(localStorage.getItem("token"));
+    setUserId(localStorage.getItem("userid"));
+    // ambil userid dari getitem localstorage (sama seperti conditional rendering navbar di landingpage)
+  }, [token, userId]);
 
   useEffect(() => {
     axios
@@ -21,7 +31,7 @@ const EditPerusahaan = () => {
   }, []);
   return (
     <>
-      <NavbarProfile />
+      {token && userId ? <NavbarProfile userId={userId} /> : <NavbarLogin />}
       <div style={{ backgroundColor: "#5E50A1", width: "1488px", height: "500px", border: "1px solid #5E50A1", zIndex: "0", position: "absolute" }}></div>
       <div className="container">
         <div style={{ marginTop: "80px", zIndex: "1", position: "relative" }}>

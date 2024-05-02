@@ -24,7 +24,6 @@ const Test = () => {
     UserId: 0,
   });
 
-  // create
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({

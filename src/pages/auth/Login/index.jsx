@@ -5,6 +5,7 @@ import { Form, Button } from "react-bootstrap";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const router = useRouter();
@@ -23,6 +24,8 @@ const Login = () => {
       .then((res) => {
         console.log(res.data);
         // localStorage.setItem("userid", res.data.Email);
+        // Cookies.set("userid", res.data.)
+        // Cookies.set("role", res.data.)
       })
       .catch((err) => {
         console.log(err);
