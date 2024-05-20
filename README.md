@@ -160,3 +160,9 @@ REACT_APP_BACKEND = [BACKEND_URL]
     <td><img width="350px" src="" border="0" alt="1"/></td>
   </tr>
 </table>
+
+### Related Project
+
+:rocket: [`Backend Hirejob`](https://github.com/yohansky/BE-Hirejob)
+
+:rocket: [`Frontend Hirejob`](https://github.com/yohansky/Fe-HireJob-Next)
