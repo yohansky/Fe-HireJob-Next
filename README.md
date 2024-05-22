@@ -152,12 +152,10 @@ REACT_APP_BACKEND = [BACKEND_URL]
     <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/1148d865-61cb-449b-9ec5-dc1dc2ed6952" border="0" alt="1"/></td>
   </tr>
   <tr>
-    <td>Hire (WIP)</td>
-    <td></td>
+    <td>Hire</td>
   </tr>
   <tr>
-    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/ec131cb6-d73b-44f0-9482-e84c3a3504aa" border="0" alt="1"/></td>
-    <td><img width="350px" src="" border="0" alt=""/></td>
+    <td><img width="350px" src="https://github.com/yohansky/Fe-HireJob-Next/assets/69236028/cf01378e-e365-4389-9d4d-4e802d0e7897" border="0" alt="1"/></td>
   </tr>
 </table>
 
